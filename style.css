@@ -1,8 +1,66 @@
-html, body {
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto+Mono:wght@400;700&display=swap');
+
+body {
   margin: 0;
-  padding: 0;
+  background-color: #ffffff;
+  color: #000000;
+  font-family: 'Roboto Mono', monospace;
+  text-align: center;
 }
 
-canvas {
-  display: block;
+
+
+.header {
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+
+.header h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.header h2 {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+  color: #333;
+}
+
+/* === GRADIENTE ANIMATO CON DISTURBO E BLEND MODE === */
+
+#gradient-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none; /* non blocca il mouse */
+  z-index: 100; /* resta sotto il canvas */
+
+  background: linear-gradient(270deg, 
+    #7b2ff7, /* viola */
+    #076cf1, /* fucsia */
+    #ff007f  /* rosa */
+  );
+  background-size: 800% 800%;
+  animation: gradientShift 30s ease infinite;
+
+  mix-blend-mode: multiply; /* 🔥 fa fondere il colore con il canvas */
+  filter: contrast(100%) brightness(100%) saturate(80%);
+}
+
+/* animazione del gradiente */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  25% { background-position: 50% 50%; }
+  50% { background-position: 100% 50%; }
+  75% { background-position: 50% 100%; }
+  100% { background-position: 0% 50%; }
 }
