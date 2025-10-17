@@ -1,5 +1,4 @@
 
-
 let table;
 let items = []; // { row, peaks }
 
